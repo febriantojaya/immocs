@@ -31,6 +31,8 @@ Tunggu hingga proses inisialisasi selesai, yang ditandai dengan munculnya log
 
 Aplikasi dapat diakses melalui:
 
+[http://localhost:8080](http://localhost:8080)
+atau
 [http://localhost:9090](http://localhost:9090)
 
 ## Akun Default
