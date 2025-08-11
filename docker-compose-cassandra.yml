@@ -1,0 +1,15 @@
+services:
+  mytb:
+    image: thingsboard/tb-cassandra:4.0.1
+    container_name: mytb
+    restart: always
+    environment:
+      JVM_OPTS: "-XX:+IgnoreUnrecognizedVMOptions --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.module=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED"
+    ports:
+      - "9090:9090" # Web UI and HTTP API
+      - "1883:1883" # MQTT
+      - "7070:7070" # RPC
+      - "5683-5688:5683-5688/udp" # CoAP and LwM2M
+    volumes:
+      - ./mytb-data:/data
+      - ./mytb-logs:/var/log/thingsboard
